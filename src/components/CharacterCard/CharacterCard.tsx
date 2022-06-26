@@ -4,21 +4,24 @@ import { CharacterRoleInfo } from "../CharacterRoleInfo/CharacterRoleInfo";
 
 interface CharacterCardProps {
   character: iCharacter;
+  killCharacter: () => void;
+  speakCharacter: () => void;
 }
 
-export function CharacterCard({ character }: CharacterCardProps) {
+export function CharacterCard({
+  character,
+  killCharacter,
+  speakCharacter,
+}: CharacterCardProps) {
   return (
-    <div
-      className={
-        "card character__card" + character.isAlive
-          ? ""
-          : " character__card--isDead"
-      }
-    >
+    <div className="card character__card">
       <img
         src={character.img}
         alt={character.name + " - " + character.family}
-        className="character__picture card-img-top"
+        className={
+          "character__picture card-img-top" +
+          (character.isAlive ? "" : " character__picture--isDead")
+        }
       />
       <div className="card-body">
         <h2 className="character__name card-title h4">{character.name}</h2>
@@ -29,9 +32,8 @@ export function CharacterCard({ character }: CharacterCardProps) {
               Estado:
               <i
                 className={
-                  "fas" + character.isAlive
-                    ? " fa-thumbs-up"
-                    : " fa-thumbs-down"
+                  "fas" +
+                  (character.isAlive ? " fa-thumbs-up" : " fa-thumbs-down")
                 }
               ></i>
             </li>
@@ -40,8 +42,12 @@ export function CharacterCard({ character }: CharacterCardProps) {
         <div className="character__overlay">
           <CharacterRoleInfo character={character} />
           <div className="character__actions">
-            <button className="character__action btn">habla</button>
-            <button className="character__action btn">muere</button>
+            <button className="character__action btn" onClick={speakCharacter}>
+              habla
+            </button>
+            <button className="character__action btn" onClick={killCharacter}>
+              muere
+            </button>
           </div>
         </div>
       </div>
