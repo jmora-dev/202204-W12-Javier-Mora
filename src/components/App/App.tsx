@@ -5,12 +5,10 @@ import { CharacterMessage } from "../CharacterMessage/CharacterMessage";
 function App() {
   return (
     <CharactersContextProvider>
-      <>
-        <div className="app container">
-          <CharacterList />
-        </div>
-        <CharacterMessage />
-      </>
+      <div className="app container">
+        <CharacterList />
+      </div>
+      <CharacterMessage />
     </CharactersContextProvider>
   );
 }
