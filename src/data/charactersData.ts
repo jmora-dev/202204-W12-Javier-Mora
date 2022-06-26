@@ -1,0 +1,58 @@
+import { CHARACTER_ROLES } from "../constants/characterRoles";
+import { iCharacter } from "../interfaces/iCharacter";
+
+export const charactersData: Array<iCharacter> = [
+  {
+    id: 1,
+    role: CHARACTER_ROLES.KING,
+    img: "./img/joffrey.jpg",
+    name: "Joffrey Baratheon",
+    family: "Baratheon",
+    age: 14,
+    isAlive: true,
+    reignYears: 1,
+  },
+  {
+    id: 2,
+    role: CHARACTER_ROLES.FIGHTER,
+    img: "./img/jaime.jpg",
+    name: "Jaime Lannister",
+    family: "Lannister",
+    age: 34,
+    isAlive: true,
+    weapon: "Espada",
+    dexterity: 8,
+  },
+  {
+    id: 3,
+    role: CHARACTER_ROLES.FIGHTER,
+    img: "./img/daenerys.jpg",
+    name: "Daenerys Targaryen",
+    family: "Targaryen",
+    age: 16,
+    isAlive: true,
+    weapon: "Dragones",
+    dexterity: 5,
+  },
+  {
+    id: 4,
+    role: CHARACTER_ROLES.ADVISOR,
+    img: "./img/tyrion.jpg",
+    name: "Tyrion Lannister",
+    family: "Lannister",
+    age: 27,
+    isAlive: true,
+    assignTo: "Daenerys Targaryen",
+  },
+  {
+    id: 5,
+    role: CHARACTER_ROLES.SQUIRE,
+    img: "./img/bronn.jpg",
+    name: "Bronn",
+    family: "Stokeworth",
+    age: 32,
+    isAlive: true,
+    assignTo: "Jaime Lannister",
+    fawnerLevel: 7,
+  },
+];
