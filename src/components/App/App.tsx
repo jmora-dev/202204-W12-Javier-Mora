@@ -1,10 +1,16 @@
 import { CharactersContextProvider } from "../../context/charactersContext";
 import { CharacterList } from "../CharacterList/CharacterList";
+import { CharacterMessage } from "../CharacterMessage/CharacterMessage";
 
 function App() {
   return (
     <CharactersContextProvider>
-      <CharacterList />
+      <>
+        <div className="app container">
+          <CharacterList />
+        </div>
+        <CharacterMessage />
+      </>
     </CharactersContextProvider>
   );
 }

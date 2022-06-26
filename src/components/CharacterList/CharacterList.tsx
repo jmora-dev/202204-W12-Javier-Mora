@@ -1,4 +1,3 @@
-import { kill } from "process";
 import { useContext } from "react";
 import {
   CharactersContext,

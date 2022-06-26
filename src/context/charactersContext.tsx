@@ -23,7 +23,6 @@ export function CharactersContextProvider({
     useState<Array<iCharacter>>(charactersData);
   const [speakConfig, setSpeakConfig] = useState<iSpeakCharacterConfig>({
     visible: false,
-    text: "",
   });
 
   const killCharacter = (id: number) => {
@@ -37,10 +36,19 @@ export function CharactersContextProvider({
   };
 
   const speakCharacter = (id: number) => {
-    setSpeakConfig({ ...speakConfig, visible: true, text: "" });
-    setTimeout(() => {
-      setSpeakConfig({ ...speakConfig, visible: false, text: "" });
-    }, 3000);
+    const character = characters.find((character) => character.id === id);
+    if (character) {
+      setSpeakConfig({
+        ...speakConfig,
+        visible: true,
+        role: character.role,
+        imgSrc: character.img,
+        imgAltText: `${character.name} - ${character.family}`,
+      });
+      setTimeout(() => {
+        setSpeakConfig({ ...speakConfig, visible: false });
+      }, 2000);
+    }
   };
 
   const value = {
