@@ -17,7 +17,7 @@ export const CharactersContext = createContext<undefined | iCharacterContext>(
 export function CharactersContextProvider({
   children,
 }: {
-  children: JSX.Element;
+  children: Array<JSX.Element>;
 }) {
   const [characters, setCharacters] =
     useState<Array<iCharacter>>(charactersData);
