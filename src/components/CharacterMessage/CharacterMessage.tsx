@@ -15,8 +15,6 @@ const messageByRole = {
 export function CharacterMessage() {
   const { speakConfig } = useContext(CharactersContext) as iCharacterContext;
 
-  console.log(speakConfig);
-
   return (
     <div className={"comunications" + (speakConfig.visible ? " on" : "")}>
       {speakConfig.visible && (
