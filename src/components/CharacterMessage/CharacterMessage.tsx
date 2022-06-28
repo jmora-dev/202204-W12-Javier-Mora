@@ -16,7 +16,10 @@ export function CharacterMessage() {
   const { speakConfig } = useContext(CharactersContext) as iCharacterContext;
 
   return (
-    <div className={"comunications" + (speakConfig.visible ? " on" : "")}>
+    <div
+      className={"comunications" + (speakConfig.visible ? " on" : "")}
+      data-testid="message-container"
+    >
       {speakConfig.visible && (
         <>
           <p className="comunications__text display-1">
