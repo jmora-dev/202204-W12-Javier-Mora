@@ -12,6 +12,7 @@ describe("Given CharacterContext", () => {
         killCharacter: (id: number) => {},
         speakCharacter: (id: number) => {},
       };
+
       render(
         <CharactersContext.Provider value={contextInitialState}>
           <CharacterMessage />
