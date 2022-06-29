@@ -1,4 +1,4 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import { charactersData } from "../data/charactersData";
 import { iCharacter } from "../interfaces/iCharacter";
 import { iSpeakCharacterConfig } from "../interfaces/iSpeakCharacterConfig";
@@ -19,11 +19,14 @@ export function CharactersContextProvider({
 }: {
   children: JSX.Element | Array<JSX.Element>;
 }) {
-  const [characters, setCharacters] =
-    useState<Array<iCharacter>>(charactersData);
+  const [characters, setCharacters] = useState<Array<iCharacter>>([]);
   const [speakConfig, setSpeakConfig] = useState<iSpeakCharacterConfig>({
     visible: false,
   });
+
+  useEffect(() => {
+    setCharacters(charactersData);
+  }, []);
 
   const killCharacter = (id: number) => {
     setCharacters(

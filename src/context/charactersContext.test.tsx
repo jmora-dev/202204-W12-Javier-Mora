@@ -16,8 +16,12 @@ describe("Given CharactersContext component", () => {
         useContext(CharactersContext) as iCharacterContext;
       return (
         <>
-          <p>Is alive: {characters[0].isAlive.toString()}</p>
-          <button onClick={() => killCharacter(1)}>kill</button>
+          {characters.length && (
+            <>
+              <p>Is alive: {characters[0].isAlive.toString()}</p>
+              <button onClick={() => killCharacter(1)}>kill</button>
+            </>
+          )}
           <p>Message visible: {speakConfig.visible.toString()}</p>
           <button onClick={() => speakCharacter(1)}>speak</button>
         </>
@@ -26,14 +30,14 @@ describe("Given CharactersContext component", () => {
   });
 
   describe("When kill character 1", () => {
-    test("Then should be 'Is alive: false'", () => {
+    test("Then should be 'Is alive: false'", async () => {
       render(
         <CharactersContextProvider>
           <TestComponent />
         </CharactersContextProvider>
       );
 
-      screen.getByText(/Is alive: true/i);
+      await screen.findByText(/Is alive: true/i);
       const killButton = screen.getByText("kill");
       userEvent.click(killButton);
       screen.getByText(/Is alive: false/i);
