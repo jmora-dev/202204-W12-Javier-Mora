@@ -4,21 +4,13 @@ interface CharacterEmojiProps {
   role: CHARACTER_ROLES;
 }
 
-export function CharacterEmoji({ role }: CharacterEmojiProps) {
-  const selectEmoji = (role: CHARACTER_ROLES): string => {
-    switch (role) {
-      case CHARACTER_ROLES.KING:
-        return "👑";
-      case CHARACTER_ROLES.SQUIRE:
-        return "🛡️";
-      case CHARACTER_ROLES.FIGHTER:
-        return "⚔️";
-      case CHARACTER_ROLES.ADVISOR:
-        return "🕊️";
-      default:
-        return "";
-    }
-  };
+const emojiByRole = {
+  [CHARACTER_ROLES.ADVISOR]: "🕊️",
+  [CHARACTER_ROLES.FIGHTER]: "⚔️",
+  [CHARACTER_ROLES.KING]: "👑",
+  [CHARACTER_ROLES.SQUIRE]: "🛡️",
+};
 
-  return <i className="emoji">{selectEmoji(role)}</i>;
+export function CharacterEmoji({ role }: CharacterEmojiProps) {
+  return <i className="emoji">{emojiByRole[role]}</i>;
 }
