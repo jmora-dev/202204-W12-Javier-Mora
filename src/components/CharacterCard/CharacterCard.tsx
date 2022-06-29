@@ -29,7 +29,7 @@ export function CharacterCard({
           <ul className="list-unstyled">
             <li>{`Edad: ${character.age} años`}</li>
             <li>
-              Estado:
+              {"Estado: "}
               <i
                 className={
                   "fas" +
